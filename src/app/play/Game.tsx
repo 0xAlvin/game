@@ -88,7 +88,7 @@ function Choose({ mode }: { mode: string }) {
     useEffect(() => {
         const timeout = setTimeout(() => {
             setGotwin(true);
-        }, 100000);
+        }, 3000);
         return () => clearTimeout(timeout);
     }, []);
     return (gesture !== "" ?
