@@ -1,0 +1,175 @@
+.game_view {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 320px;
+  width: 320px;
+  margin-top: 10rem;
+}
+.game_view_img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+  z-index: 1;
+}
+.game_view {
+  animation: fromDown 1s ease-in-out;
+}
+
+@keyframes fromDown {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.game_gestures .gesture:hover,
+.game_gestures2 .gesture:hover {
+  transform: scale(1.1);
+}
+.game_gestures .gesture,
+.game_gestures2 .gesture {
+  position: absolute;
+  z-index: 5 !important;
+}
+.game_gestures2 .gesture {
+  height: 150px;
+  width: 150px;
+  border: solid 15px transparent;
+}
+.game_gestures .gesture:nth-child(1) {
+  transform: translate(-120%, -125%);
+}
+.game_gestures .gesture:nth-child(2) {
+  top: 0;
+  transform: translate(10%, -50%);
+}
+.game_gestures .gesture:nth-child(3) {
+  bottom: -10;
+  transform: translateX(-50%);
+}
+
+.game_gestures2 .gesture:nth-child(1) {
+  /*lizard*/
+  background: linear-gradient(white, white) padding-box,
+    linear-gradient(to right, hsl(261, 73%, 60%), hsl(261, 72%, 63%)) border-box;
+  box-shadow: inset rgba(128, 128, 128, 0.531) 0px 4px 0px 0px,
+    hsl(261, 73%, 40%) 0px 6px 0px 0px;
+
+  transform: translate(-120%, 30%);
+}
+.game_gestures2 .gesture:nth-child(2) {
+  /*spock*/
+  background: linear-gradient(white, white) padding-box,
+    linear-gradient(to right, hsl(189, 59%, 53%), hsl(189, 58%, 57%)) border-box;
+  box-shadow: inset rgba(128, 128, 128, 0.531) 0px 4px 0px 0px,
+    hsl(189, 59%, 33%) 0px 6px 0px 0px;
+
+  transform: translate(-150%, -100%);
+}
+.game_gestures2 .gesture:nth-child(3) {
+  /*scissors*/
+  background: linear-gradient(white, white) padding-box,
+    linear-gradient(to right, hsl(39, 89%, 49%), hsl(40, 84%, 53%)) border-box;
+  box-shadow: inset rgba(128, 128, 128, 0.531) 0px 4px 0px 0px,
+    hsl(39, 89%, 29%) 0px 6px 0px 0px;
+
+  transform: translate(-50%, -170%);
+}
+.game_gestures2 .gesture:nth-child(4) {
+  /*paper*/
+  background: linear-gradient(white, white) padding-box,
+    linear-gradient(to right, hsl(230, 89%, 62%), hsl(230, 89%, 65%)) border-box;
+  box-shadow: inset rgba(128, 128, 128, 0.531) 0px 4px 0px 0px,
+    hsl(230, 89%, 52%) 0px 6px 0px 0px;
+
+  top: 0;
+  transform: translate(50%, 10%);
+}
+.game_gestures2 .gesture:nth-child(5) {
+  /*rock*/
+  background: linear-gradient(white, white) padding-box,
+    linear-gradient(to right, hsl(349, 71%, 52%), hsl(349, 70%, 56%)) border-box;
+  box-shadow: inset rgba(128, 128, 128, 0.531) 0px 4px 0px 0px,
+    hsl(349, 71%, 40%) 0px 6px 0px 0px;
+
+  transform: translate(15%, 30%);
+}
+.choices {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: -15rem;
+}
+.choices .gesture {
+  transform: scale(1.3);
+  margin-top: 45px;
+}
+.choices p {
+  font-family: "Barlow Semi Condensed", sans-serif;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #fff;
+  padding: 10px;
+  text-shadow: 2px 5px 5px rgba(0, 0, 0, 0.5);
+}
+.player_choice,
+.house_choice {
+  width: max-content;
+  display: grid;
+  place-items: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 3rem;
+}
+@media screen and (max-width: 576px) {
+  .game_view {
+    margin: 5px;
+    position: absolute !important;
+    top: 40%;
+  }
+  .game_gestures .gesture{
+    height: 160px !important;
+    width: 160px !important;
+  }
+  .game_gestures2 .gesture {
+    height: 150px;
+    width: 150px;
+    border: solid 15px transparent;
+  }
+  .game_gestures .gesture:nth-child(1) {
+    transform: translate(-115%, -140%);
+  }
+  .game_gestures .gesture:nth-child(2) {
+    top: 0;
+    transform: translate(10%, -40%);
+  }
+  .choices > :first-child{
+    transform: translateX(25%);
+  }
+  .choices > :last-child{
+    transform: translateX(-25%);
+  }
+  .choices .gesture {
+    transform: scale(0.8);
+  }
+  .choices p{
+    font-size: 1.3rem;
+    margin-top: 2rem;
+    letter-spacing: 1.5px;
+  }
+  .player_choice,
+  .house_choice {
+    display: flex;
+    flex-direction: column-reverse !important;
+  }
+}

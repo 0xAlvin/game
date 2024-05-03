@@ -1,0 +1,55 @@
+.gesture {
+  height: 200px;
+  width: 200px;
+  padding: 40px;
+  outline: none;
+  border: solid 20px transparent;
+  transition: all 0.3s ease;
+  border-radius: 50%;
+  cursor: pointer;
+  animation: fadeIn 2s ease-in-out;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.gesture-scissors {
+  background: linear-gradient(white, white) padding-box,
+    linear-gradient(to right, hsl(39, 89%, 49%), hsl(40, 84%, 53%)) border-box;
+  box-shadow: inset rgba(128, 128, 128, 0.531) 0px 7px 0px 0px,
+    hsl(39, 89%, 29%) 0px 10px 0px 0px;
+}
+.gesture-rock {
+  background: linear-gradient(white, white) padding-box,
+    linear-gradient(to right, hsl(349, 71%, 52%), hsl(349, 70%, 56%)) border-box;
+  box-shadow: inset rgba(128, 128, 128, 0.531) 0px 7px 0px 0px,
+    hsl(349, 71%, 40%) 0px 10px 0px 0px;
+}
+.gesture-paper {
+  background: linear-gradient(white, white) padding-box,
+    linear-gradient(to right, hsl(230, 89%, 62%), hsl(230, 89%, 65%)) border-box;
+  box-shadow: inset rgba(128, 128, 128, 0.531) 0px 7px 0px 0px,
+    hsl(230, 89%, 52%) 0px 10px 0px 0px;
+}
+.gesture-lizard {
+  background: linear-gradient(white, white) padding-box,
+    linear-gradient(to right, hsl(261, 73%, 60%), hsl(261, 72%, 63%)) border-box;
+  box-shadow: inset rgba(128, 128, 128, 0.531) 0px 7px 0px 0px,
+    hsl(261, 73%, 40%) 0px 10px 0px 0px;
+}
+.gesture-spock {
+  background: linear-gradient(white, white) padding-box,
+    linear-gradient(to right, hsl(189, 59%, 53%), hsl(189, 58%, 57%)) border-box;
+  box-shadow: inset rgba(128, 128, 128, 0.531) 0px 7px 0px 0px,
+    hsl(189, 59%, 33%) 0px 10px 0px 0px;
+}
+.gesture .gesture-img {
+  height: 100% !important;
+  width: 100% !important;
+  object-fit: contain;
+}

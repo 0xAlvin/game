@@ -1,0 +1,75 @@
+.logo-image {
+  margin-top: 5px;
+}
+.board {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  max-width: 600px;
+  margin: 0 auto;
+  border: 3px solid hsl(217, 16%, 45%);
+  border-radius: 15px;
+  margin-top: 2%;
+  padding: 0 20px;
+  place-items: center;
+  animation: slideDown 0.5s ease;
+}
+.game-name {
+  text-align: left;
+  color: #fff;
+  font-size: 2rem;
+  font-family: "Barlow Semi Condensed", sans-serif;
+  font-weight: 700;
+  margin: 12px 0;
+  margin-left: 10px;
+  justify-self: start;
+}
+.scoreboard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  width: 130px;
+  height: 110px;
+  border-radius: 10px;
+  justify-self: end;
+  font-family: "Barlow Semi Condensed", sans-serif;
+}
+.scoreboard > :first-child {
+  color: hsl(229, 64%, 46%);
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 1px;
+}
+.scoreboard > :last-child {
+  color: hsl(229, 25%, 31%);
+  font-size: 4rem;
+  font-weight: 700;
+}
+@keyframes slideDown {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@media screen and (max-width: 576px) {
+  .logo-image {
+    padding: 15px 20px 15px 0px;
+  }
+  .board{
+    margin: 20px;
+  }
+  .scoreboard{
+    height: 110px;
+    width: 120px;
+    justify-content: flex-start;
+  }
+  .scoreboard > :first-child {
+    padding-top:15px ;
+  }
+  .scoreboard > :last-child{
+    margin-top: -10px;
+  }
+}

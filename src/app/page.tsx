@@ -1,95 +1,58 @@
-import Image from "next/image";
+"use client"
 import styles from "./page.module.css";
+import Image from "next/image";
+import { useEffect, useState } from "react";
+import Link from "next/link";
 
 export default function Home() {
+  const [open, setOpen] = useState(true);
+  const [mode, setMode] = useState("normal");
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const storedMode = localStorage.getItem("mode");
+      if (storedMode) {
+        setMode(storedMode);
+      }
+    }
+  }, [mode]);
+
+  const handleMode = (selectedmode: string = "") => {
+    if (selectedmode === ""){
+      if (localStorage.getItem("mode")){
+        return;
+      }
+      localStorage.setItem("mode", mode);
+      return;
+    }
+    setMode(selectedmode);
+    localStorage.setItem("mode", selectedmode);
+    return;
+  };
+
+  const handleSidekick = () => {
+    setOpen(!open);
+  }
+
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <main className={`${styles.main} ${styles.main_screen}`}>
+      <Image src={`/images/back.jpeg`} width={2000} height={2000} alt="hero" className={styles.backgroundImg} />
+      <h1>Welcome</h1>
+      <p>Lets Play</p>
+      <div className={styles.select_mode}>
+        <p>Select mode</p>
+        <div className={styles.modes}>
+          <div className={styles.current_mode} onClick={handleSidekick}>
+            <p>{mode}</p>
+            <Image src={`/images/arrow.png`} width={40} height={40} alt="mode" />
+          </div>
+          <div className={`${styles.modeoptions} ${open ? styles.modeoptionshidden : ""}`}>
+            <button type="button" role="button" onClick={() => { handleMode("normal"); handleSidekick() }}>Normal</button>
+            <button type="button" role="button" onClick={() => { handleMode("extra"); handleSidekick() }}>Extra</button>
+          </div>
         </div>
       </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
+      <Link href={`${'/play/'+ mode}`} className={styles.startbtn} onClick={() => { handleMode(); }}>START</Link>
     </main>
   );
 }
